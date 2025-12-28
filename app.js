@@ -158,6 +158,18 @@ function renderAnalytics() {
     } else {
         balanceCard.style.color = 'var(--color-balance)';
     }
+
+    // Update mobile sticky summary
+    const mobileIncome = document.getElementById('mobile-income');
+    const mobileExpenses = document.getElementById('mobile-expenses');
+    const mobileBalance = document.getElementById('mobile-balance');
+
+    if (mobileIncome) mobileIncome.textContent = `₹${income.toFixed(0)}`;
+    if (mobileExpenses) mobileExpenses.textContent = `₹${expenses.toFixed(0)}`;
+    if (mobileBalance) {
+        mobileBalance.textContent = `₹${balance.toFixed(0)}`;
+        mobileBalance.classList.toggle('negative', balance < 0);
+    }
 }
 
 function renderCategoryBreakdown() {

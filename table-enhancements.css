@@ -1,0 +1,95 @@
+/* ================================================
+   TRANSACTION TABLE UX ENHANCEMENTS
+   ================================================ */
+
+/* Zebra striping - very subtle */
+.transactions-table tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Hover row highlight */
+.transactions-table tbody tr:hover {
+    background: rgba(59, 130, 246, 0.08) !important;
+    transform: translateX(2px);
+    transition: all 0.2s ease;
+}
+
+/* Sticky table header on scroll */
+.transactions-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--color-bg-secondary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.transactions-table thead th {
+    background: var(--color-bg-secondary);
+}
+
+/* Monospace font for amounts - clean alignment */
+.transactions-table .amount-cell,
+.stat-value,
+.category-amount,
+.mobile-summary-value {
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace !important;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+}
+
+/* Enhanced amount styling */
+.amount-cell {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Better visual separation for table */
+.transactions-table tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Smooth transitions */
+.transactions-table tbody tr {
+    transition: all 0.15s ease;
+}
+
+/* Focus state for accessibility */
+.transaction-row:focus {
+    outline: 2px solid var(--color-balance);
+    outline-offset: -2px;
+}
+
+/* Better category badge in table */
+.transactions-table .category-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-neutral);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Desktop-specific enhancements */
+@media (min-width: 769px) {
+
+    /* Sticky header with better shadow */
+    .transactions-table thead {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Hover lift effect */
+    .transactions-table tbody tr:hover {
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+    }
+}
+
+/* Mobile - disable zebra on stacked rows */
+@media (max-width: 480px) {
+    .transactions-table tbody tr:nth-child(even) {
+        background-color: transparent;
+    }
+}

@@ -1,0 +1,229 @@
+/* ================================================
+   ENHANCED MOBILE OPTIMIZATION
+   ================================================ */
+
+/* === HORIZONTAL SCROLLING CARDS ON MOBILE === */
+@media (max-width: 480px) {
+
+    /* Extra bottom padding for sticky summary */
+    .main-content {
+        padding: 16px 0 80px !important;
+    }
+
+    /* Horizontal scroll for stats cards */
+    .stats-grid {
+        display: flex !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px !important;
+        padding-bottom: 8px;
+        margin-bottom: 20px !important;
+        scrollbar-width: thin;
+    }
+
+    .stats-grid::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .stats-grid::-webkit-scrollbar-track {
+        background: var(--color-bg-tertiary);
+    }
+
+    .stats-grid::-webkit-scrollbar-thumb {
+        background: var(--color-border-light);
+        border-radius: var(--radius-sm);
+    }
+
+    /* Fixed width cards for horizontal scroll */
+    .stat-card {
+        flex: 0 0 280px !important;
+        scroll-snap-align: start;
+        min-width: 280px !important;
+    }
+
+    /* Horizontal scroll for category cards */
+    .category-grid {
+        display: flex !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px !important;
+        padding-bottom: 8px;
+        scrollbar-width: thin;
+    }
+
+    .category-grid::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .category-grid::-webkit-scrollbar-track {
+        background: var(--color-bg-tertiary);
+    }
+
+    .category-grid::-webkit-scrollbar-thumb {
+        background: var(--color-border-light);
+        border-radius: var(--radius-sm);
+    }
+
+    .category-item {
+        flex: 0 0 280px !important;
+        scroll-snap-align: start;
+        min-width: 280px !important;
+    }
+
+    /* === STACKED TABLE ROWS === */
+    .table-container {
+        border: none !important;
+        background: transparent !important;
+        overflow: visible !important;
+        max-height: none !important;
+    }
+
+    .transactions-table {
+        border: 0 !important;
+    }
+
+    /* Hide table header on mobile */
+    .transactions-table thead {
+        display: none !important;
+    }
+
+    .transactions-table tbody {
+        display: block !important;
+    }
+
+    /* Each row becomes a card */
+    .transactions-table tr {
+        display: block !important;
+        margin-bottom: 16px !important;
+        background: var(--color-bg-card) !important;
+        border: 1px solid var(--color-border) !important;
+        border-radius: var(--radius-md) !important;
+        padding: 12px !important;
+        position: relative !important;
+        box-shadow: var(--shadow-sm) !important;
+    }
+
+    /* Stack each cell vertically with labels */
+    .transactions-table td {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        text-align: right !important;
+        padding: 8px 0 !important;
+        border: none !important;
+        font-size: 0.85rem !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    }
+
+    .transactions-table td:last-child {
+        border-bottom: none !important;
+    }
+
+    /* Add labels before each value */
+    .transactions-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--color-text-secondary);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-align: left;
+    }
+
+    /* Date is prominent at top */
+    .transactions-table td:first-child {
+        padding-top: 0 !important;
+        font-weight: 700;
+        color: var(--color-text-primary) !important;
+        font-size: 0.95rem !important;
+        border-bottom: 1px solid var(--color-border) !important;
+        padding-bottom: 8px !important;
+        margin-bottom: 4px !important;
+    }
+
+    /* Amount is highlighted */
+    .amount-cell {
+        font-size: 1.15rem !important;
+        font-weight: 700 !important;
+    }
+}
+
+/* === STICKY BOTTOM SUMMARY BAR === */
+@media (max-width: 768px) {
+
+    /* Fixed bottom summary */
+    .mobile-summary {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: rgba(21, 21, 21, 0.95) !important;
+        border-top: 1px solid var(--color-border) !important;
+        padding: 10px 12px !important;
+        z-index: 100 !important;
+        display: flex !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.5) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+    }
+
+    .mobile-summary-item {
+        text-align: center !important;
+        flex: 1 !important;
+        padding: 0 4px !important;
+    }
+
+    .mobile-summary-label {
+        font-size: 0.6rem !important;
+        color: var(--color-text-muted) !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        display: block !important;
+        margin-bottom: 3px !important;
+        font-weight: 600 !important;
+    }
+
+    .mobile-summary-value {
+        font-size: 0.95rem !important;
+        font-weight: 700 !important;
+        color: var(--color-text-primary) !important;
+        font-family: 'Courier New', monospace !important;
+    }
+
+    .mobile-summary-value.income {
+        color: var(--color-income) !important;
+    }
+
+    .mobile-summary-value.expense {
+        color: var(--color-expense) !important;
+    }
+
+    .mobile-summary-value.balance {
+        color: var(--color-balance) !important;
+    }
+
+    .mobile-summary-value.balance.negative {
+        color: var(--color-expense) !important;
+    }
+}
+
+/* Tablet optimization */
+@media (min-width: 481px) and (max-width: 768px) {
+    .mobile-summary {
+        padding: 12px 20px !important;
+    }
+
+    .mobile-summary-label {
+        font-size: 0.7rem !important;
+    }
+
+    .mobile-summary-value {
+        font-size: 1.1rem !important;
+    }
+}
