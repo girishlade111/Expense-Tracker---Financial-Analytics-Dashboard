@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional expense tracker with real-time Google Sheets integration. Track your income, expenses, and financial analytics.">
+    <meta name="description"
+        content="Professional expense tracker with real-time Google Sheets integration. Track your income, expenses, and financial analytics.">
     <title>Expense Tracker - Financial Analytics Dashboard</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile-first.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
             <h1 class="logo">
-                <svg class="logo-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2v20M2 12h20M6 6l12 12M6 18l12-12"/>
+                <svg class="logo-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M12 2v20M2 12h20M6 6l12 12M6 18l12-12" />
                 </svg>
                 Expense Tracker
             </h1>
@@ -38,7 +43,8 @@
 
             <!-- Error State -->
             <div id="errorState" class="error-state hidden">
-                <svg class="error-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg class="error-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
                     <circle cx="12" cy="12" r="10"></circle>
                     <line x1="12" y1="8" x2="12" y2="12"></line>
                     <line x1="12" y1="16" x2="12.01" y2="16"></line>
@@ -56,8 +62,9 @@
                     <div class="stats-grid">
                         <div class="stat-card income-card">
                             <div class="stat-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
                                 </svg>
                             </div>
                             <div class="stat-content">
@@ -68,8 +75,9 @@
 
                         <div class="stat-card expense-card">
                             <div class="stat-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                                 </svg>
                             </div>
                             <div class="stat-content">
@@ -80,7 +88,8 @@
 
                         <div class="stat-card balance-card">
                             <div class="stat-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
                                     <line x1="1" y1="10" x2="23" y2="10"></line>
                                 </svg>
@@ -93,10 +102,11 @@
 
                         <div class="stat-card transactions-card">
                             <div class="stat-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                    <polyline points="14 2 14 8 20 8"/>
-                                    <line x1="9" y1="15" x2="15" y2="15"/>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="9" y1="15" x2="15" y2="15" />
                                 </svg>
                             </div>
                             <div class="stat-content">
@@ -149,4 +159,5 @@
 
     <script src="app.js"></script>
 </body>
+
 </html>

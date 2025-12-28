@@ -1,0 +1,207 @@
+/* Mobile-First CSS Additions and Overrides */
+/* Add this file link in index.html after styles.css */
+
+/* ===========================
+   Mobile-First Base Overrides
+   =========================== */
+
+/* Make all interactive elements touch-friendly (44px minimum) */
+.stat-card {
+    min-height: 88px !important;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+}
+
+.category-item {
+    min-height: 100px !important;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+}
+
+.retry-btn,
+.clear-filter-btn {
+    min-height: 44px !important;
+    min-width: 88px !important;
+    touch-action: manipulation;
+}
+
+/* Mobile: Single column layouts */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Optimize table for mobile scrolling */
+    .table-container {
+        -webkit-overflow-scrolling: touch;
+        overflow-x: auto;
+    }
+
+    .transactions-table {
+        min-width: 600px;
+        /* Force horizontal scroll */
+    }
+
+    /* Larger touch targets on mobile */
+    .transactions-table th,
+    .transactions-table td {
+        padding: 12px 8px !important;
+        font-size: 0.8rem !important;
+    }
+
+    /* Compact header for mobile */
+    .header .container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .header-info {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 8px;
+    }
+
+    .sync-status,
+    .last-updated {
+        font-size: 0.75rem;
+    }
+}
+
+/* Tablet: 2-column grid */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Desktop: Full grid */
+@media (min-width: 1025px) {
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+    }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 480px) {
+
+    /* Reduce padding on small screens */
+    .container {
+        padding: 0 12px !important;
+    }
+
+    .main-content {
+        padding: 16px 0 !important;
+    }
+
+    /* Compact cards */
+    .stat-card {
+        padding: 12px !important;
+        gap: 12px !important;
+    }
+
+    .stat-icon {
+        width: 36px !important;
+        height: 36px !important;
+    }
+
+    .stat-value {
+        font-size: 1.35rem !important;
+    }
+
+    .stat-label {
+        font-size: 0.75rem !important;
+    }
+
+    /* Compact section titles */
+    .section-title {
+        font-size: 1.1rem !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* Smaller logo */
+    .logo {
+        font-size: 1.15rem !important;
+    }
+
+    .logo-icon {
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    /* Optimize category cards */
+    .category-item {
+        padding: 12px !important;
+    }
+
+    .category-amount {
+        font-size: 1.1rem !important;
+    }
+
+    .category-name {
+        font-size: 0.85rem !important;
+    }
+
+    .category-count {
+        font-size: 0.65rem !important;
+    }
+
+    /* Even smaller table text */
+    .transactions-table {
+        font-size: 0.7rem !important;
+    }
+
+    .transactions-table th,
+    .transactions-table td {
+        padding: 8px 6px !important;
+        font-size: 0.7rem !important;
+    }
+
+    .amount-cell {
+        font-size: 0.75rem !important;
+    }
+}
+
+/* Improve touch response */
+@media (hover: none) and (pointer: coarse) {
+
+    /* This targets touch devices */
+    .stat-card:active,
+    .category-item:active {
+        transform: scale(0.98);
+        opacity: 0.9;
+    }
+
+    .retry-btn:active,
+    .clear-filter-btn:active {
+        transform: scale(0.95);
+    }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .header {
+        padding: 8px 0;
+    }
+
+    .main-content {
+        padding: 12px 0;
+    }
+
+    .section-title {
+        font-size: 1rem !important;
+        margin-bottom: 8px !important;
+    }
+}
