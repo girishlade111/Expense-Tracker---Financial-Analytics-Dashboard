@@ -1,0 +1,82 @@
+/* ================================================
+   MOBILE DISPLAY FIX - Critical
+   ================================================
+   Ensures Financial Overview section displays on mobile
+   ================================================ */
+
+/* Force visibility on all screen sizes */
+@media (max-width: 768px) {
+
+    /* Ensure dashboard and all sections are visible */
+    .dashboard,
+    .analytics-section,
+    .category-section,
+    .transactions-section {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* Ensure analytics section is not hidden */
+    .analytics-section {
+        position: relative !important;
+        top: auto !important;
+        z-index: auto !important;
+        background: var(--color-bg-primary) !important;
+    }
+
+    /* Ensure section title is visible */
+    .analytics-section .section-title {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        font-size: 1.25rem !important;
+        margin-bottom: var(--spacing-md) !important;
+    }
+
+    /* Ensure stats grid is visible */
+    .analytics-section .stats-grid {
+        display: grid !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* Ensure stat cards are visible */
+    .stat-card {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* Override any collapsed state on mobile */
+    .analytics-section.collapsed {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .analytics-section.collapsed .section-title {
+        display: block !important;
+        font-size: 1.25rem !important;
+        height: auto !important;
+        margin-bottom: var(--spacing-md) !important;
+        opacity: 1 !important;
+    }
+
+    .analytics-section.collapsed .stats-grid {
+        display: grid !important;
+    }
+
+    .analytics-section.collapsed .stat-card {
+        display: flex !important;
+        padding: var(--spacing-md) !important;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .analytics-section {
+        padding-top: var(--spacing-md) !important;
+        padding-bottom: var(--spacing-md) !important;
+    }
+}
