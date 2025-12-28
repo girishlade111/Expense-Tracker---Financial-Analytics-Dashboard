@@ -488,5 +488,44 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// ===========================
+// Sticky Analytics Collapse
+// ===========================
+let lastScrollY = 0;
+const analyticsSection = document.querySelector('.analytics-section');
+
+function handleStickyAnalytics() {
+    if (!analyticsSection) return;
+
+    const scrollY = window.scrollY;
+
+    // On desktop/tablet, collapse analytics when scrolling down past 100px
+    if (window.innerWidth >= 769) {
+        if (scrollY > 100) {
+            analyticsSection.classList.add('collapsed');
+        } else {
+            analyticsSection.classList.remove('collapsed');
+        }
+    }
+
+    lastScrollY = scrollY;
+}
+
+// Throttle scroll handler for performance
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+    if (scrollTimeout) {
+        window.cancelAnimationFrame(scrollTimeout);
+    }
+    scrollTimeout = window.requestAnimationFrame(handleStickyAnalytics);
+});
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth < 769) {
+        analyticsSection?.classList.remove('collapsed');
+    }
+});
+
 // Start the application
 init();

@@ -1,0 +1,126 @@
+/* ================================================
+   STICKY ANALYTICS SUMMARY
+   ================================================ */
+
+/* Desktop & Tablet - Sticky mini summary bar */
+@media (min-width: 769px) {
+    .analytics-section {
+        position: sticky;
+        top: 0;
+        z-index: 90;
+        background: var(--color-bg-primary);
+        padding-top: var(--spacing-lg);
+        padding-bottom: var(--spacing-lg);
+        transition: all 0.3s ease;
+    }
+
+    /* Collapsed state when scrolling */
+    .analytics-section.collapsed {
+        padding-top: var(--spacing-sm);
+        padding-bottom: var(--spacing-sm);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        background: rgba(10, 10, 10, 0.95);
+    }
+
+    .analytics-section.collapsed .section-title {
+        display: none;
+    }
+
+    .analytics-section.collapsed .stats-grid {
+        gap: var(--spacing-sm);
+        margin-bottom: 0;
+    }
+
+    .analytics-section.collapsed .stat-card {
+        padding: var(--spacing-sm) var(--spacing-md);
+        min-height: 60px;
+    }
+
+    .analytics-section.collapsed .stat-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .analytics-section.collapsed .stat-label {
+        font-size: 0.7rem;
+    }
+
+    .analytics-section.collapsed .stat-value {
+        font-size: 1.25rem;
+    }
+
+    /* Smooth transition for all child elements */
+    .stats-grid,
+    .stat-card,
+    .stat-icon,
+    .stat-label,
+    .stat-value {
+        transition: all 0.3s ease;
+    }
+}
+
+/* Tablet specific */
+@media (min-width: 481px) and (max-width: 768px) {
+    .analytics-section.collapsed .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .analytics-section.collapsed .stat-card {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .analytics-section.collapsed .stat-value {
+        font-size: 1.1rem;
+    }
+}
+
+/* Add subtle indicator when sticky */
+.analytics-section.collapsed::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--color-balance),
+            transparent);
+    animation: slideIndicator 2s ease infinite;
+}
+
+@keyframes slideIndicator {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Ensure table header doesn't conflict */
+.transactions-table thead {
+    top: 0;
+}
+
+.analytics-section.collapsed~.category-section,
+.analytics-section.collapsed~.transactions-section {
+    margin-top: 0;
+}
+
+/* Mobile - use existing bottom summary, no sticky top */
+@media (max-width: 768px) {
+    .analytics-section {
+        position: relative;
+    }
+
+    .analytics-section.collapsed {
+        position: relative;
+        background: var(--color-bg-primary);
+        box-shadow: none;
+    }
+}
