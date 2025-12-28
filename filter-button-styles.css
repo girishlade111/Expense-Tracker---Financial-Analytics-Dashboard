@@ -1,0 +1,21 @@
+/* Copy and paste this at the end of styles.css file, before the closing @media sections */
+
+.clear-filter-btn {
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    padding: 4px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    cursor: pointer;
+    margin-left: var(--spacing-md);
+    transition: all var(--transition-fast);
+    font-weight: 600;
+}
+
+.clear-filter-btn:hover {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-border-light);
+    color: var(--color-text-primary);
+    transform: translateY(-1px);
+}
