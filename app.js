@@ -188,7 +188,10 @@ function renderCategoryBreakdown() {
                 <span class="category-name">${escapeHtml(cat.name)}</span>
                 <span class="category-count">${cat.count} transaction${cat.count !== 1 ? 's' : ''}</span>
             </div>
-            <div class="category-amount">₹${cat.total.toFixed(2)}</div>
+            <div class="category-amount-row">
+                <span class="category-amount">₹${cat.total.toFixed(2)}</span>
+                <span class="category-percentage">(${cat.percentage.toFixed(1)}%)</span>
+            </div>
             <div class="category-bar">
                 <div class="category-bar-fill" style="width: ${cat.percentage}%"></div>
             </div>
