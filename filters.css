@@ -1,0 +1,173 @@
+/* ================================================
+   SMART FILTER PANEL
+   ================================================ */
+
+.filter-panel {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.filter-row {
+    display: flex;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-md);
+}
+
+.filter-row:last-child {
+    margin-bottom: 0;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    flex: 1;
+    min-width: 150px;
+}
+
+.filter-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.5px;
+}
+
+/* Filter Buttons (Type selector) */
+.filter-buttons {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.filter-btn {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-border-light);
+    color: var(--color-text-primary);
+}
+
+.filter-btn.active {
+    background: var(--color-balance);
+    border-color: var(--color-balance);
+    color: white;
+}
+
+/* Filter Select (Category dropdown) */
+.filter-select {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-primary);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filter-select:hover,
+.filter-select:focus {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-border-light);
+    outline: none;
+}
+
+/* Filter Input (Date pickers) */
+.filter-input {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-primary);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    color-scheme: dark;
+}
+
+.filter-input:hover,
+.filter-input:focus {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-border-light);
+    outline: none;
+}
+
+/* Calendar icon color fix for dark theme */
+.filter-input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+/* Clear All Button */
+.clear-all-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    align-self: flex-end;
+}
+
+.clear-all-btn:hover {
+    background: var(--color-expense);
+    border-color: var(--color-expense);
+    color: white;
+}
+
+.clear-all-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .filter-panel {
+        padding: var(--spacing-md);
+    }
+
+    .filter-row {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .filter-group {
+        min-width: 100%;
+    }
+
+    .clear-all-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-buttons {
+        flex-direction: column;
+    }
+
+    .filter-btn {
+        width: 100%;
+    }
+}

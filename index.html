@@ -8,7 +8,13 @@
         content="Professional expense tracker with real-time Google Sheets integration. Track your income, expenses, and financial analytics.">
     <title>Expense Tracker - Financial Analytics Dashboard</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="mobile-first.css">`n    <link rel="stylesheet" href="modal.css">`n    <link rel="stylesheet" href="table-enhancements.css">`n    <link rel="stylesheet" href="category-enhancements.css">`n    <link rel="stylesheet" href="sticky-analytics.css">`n    <link rel="stylesheet" href="mobile-fix.css">
+    <link rel="stylesheet" href="mobile-first.css">`n
+    <link rel="stylesheet" href="modal.css">`n
+    <link rel="stylesheet" href="table-enhancements.css">`n
+    <link rel="stylesheet" href="category-enhancements.css">`n
+    <link rel="stylesheet" href="sticky-analytics.css">`n
+    <link rel="stylesheet" href="mobile-fix.css">`n
+    <link rel="stylesheet" href="filters.css">
 </head>
 
 <body>
@@ -128,6 +134,55 @@
                 <!-- Transactions Table -->
                 <section class="transactions-section">
                     <h2 class="section-title">Transaction History</h2>
+
+                    <!-- Smart Filter Panel -->
+                    <div class="filter-panel">
+                        <div class="filter-row">
+                            <div class="filter-group">
+                                <label class="filter-label">Type</label>
+                                <div class="filter-buttons">
+                                    <button class="filter-btn active" data-filter="all"
+                                        onclick="setTransactionTypeFilter('all')">All</button>
+                                    <button class="filter-btn" data-filter="credit"
+                                        onclick="setTransactionTypeFilter('credit')">Credit</button>
+                                    <button class="filter-btn" data-filter="debit"
+                                        onclick="setTransactionTypeFilter('debit')">Debit</button>
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <label class="filter-label">Category</label>
+                                <select class="filter-select" id="categoryFilterSelect"
+                                    onchange="setCategoryFilterDropdown(this.value)">
+                                    <option value="">All Categories</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="filter-row">
+                            <div class="filter-group">
+                                <label class="filter-label">From Date</label>
+                                <input type="date" class="filter-input" id="dateFrom" onchange="applyDateFilter()">
+                            </div>
+
+                            <div class="filter-group">
+                                <label class="filter-label">To Date</label>
+                                <input type="date" class="filter-input" id="dateTo" onchange="applyDateFilter()">
+                            </div>
+
+                            <div class="filter-group">
+                                <button class="clear-all-btn" onclick="clearAllFilters()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2">
+                                        </path>
+                                    </svg>
+                                    Clear All
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                     <div class="table-container">
                         <table class="transactions-table">
                             <thead>
@@ -202,8 +257,3 @@
 </body>
 
 </html>
-
-
-
-
-

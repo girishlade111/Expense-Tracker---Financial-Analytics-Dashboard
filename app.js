@@ -13,8 +13,9 @@ const CONFIG = {
 // ===========================
 let expenseData = [];
 let refreshTimer = null;
-let currentFilter = 'all'; // 'all', 'income', 'expense'
+let currentFilter = 'all'; // 'all', 'credit', 'debit'
 let categoryFilter = null; // null means no category filter, string means filter by that category
+let dateFilter = { from: null, to: null }; // Date range filter
 
 // ===========================
 // DOM Elements
@@ -434,6 +435,7 @@ async function init() {
     const success = await fetchExpenseData();
 
     if (success) {
+        populateCategoryDropdown();
         setupFilterListeners();
         startAutoRefresh();
     }
