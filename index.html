@@ -8,7 +8,7 @@
         content="Professional expense tracker with real-time Google Sheets integration. Track your income, expenses, and financial analytics.">
     <title>Expense Tracker - Financial Analytics Dashboard</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="mobile-first.css">
+    <link rel="stylesheet" href="mobile-first.css">`n    <link rel="stylesheet" href="modal.css">
 </head>
 
 <body>
@@ -156,8 +156,50 @@
             <p>&copy; 2025 Expense Tracker. Read-only view synced with Google Sheets.</p>
         </div>
     </footer>
+    <!-- Transaction Detail Modal -->
+    <div id="transactionModal" class="modal hidden">
+        <div class="modal-overlay" onclick="closeTransactionModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Transaction Details</h3>
+                <button class="modal-close" onclick="closeTransactionModal()" aria-label="Close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="detail-row">
+                    <span class="detail-label">Date & Time</span>
+                    <span class="detail-value" id="modal-datetime"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Credit (Income Source)</span>
+                    <span class="detail-value" id="modal-credit"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Debit (Expense Details)</span>
+                    <span class="detail-value" id="modal-debit"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Category</span>
+                    <span class="detail-value" id="modal-category"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Amount</span>
+                    <span class="detail-value" id="modal-amount"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Purpose/Notes</span>
+                    <span class="detail-value" id="modal-purpose"></span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>
 
 </html>
+

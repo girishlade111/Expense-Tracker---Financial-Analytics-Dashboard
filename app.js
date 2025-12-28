@@ -230,12 +230,15 @@ function renderTransactionsTable() {
         return;
     }
 
-    elements.transactionsBody.innerHTML = sortedData.map(item => {
+    elements.transactionsBody.innerHTML = sortedData.map((item, index) => {
         const isIncome = item.credit && item.credit.trim() !== '';
         const amountClass = isIncome ? 'amount-income' : 'amount-expense';
 
+        // Create JSON data for modal
+        const transactionData = JSON.stringify(item).replace(/"/g, '&quot;');
+
         return `
-            <tr>
+            <tr class="transaction-row" onclick='openTransactionModal(${JSON.stringify(item)})'>
                 <td>${escapeHtml(item.dateTime)}</td>
                 <td>${escapeHtml(item.credit)}</td>
                 <td>${escapeHtml(item.debit)}</td>
@@ -428,6 +431,45 @@ document.addEventListener('visibilitychange', () => {
     } else {
         startAutoRefresh();
         fetchExpenseData(); // Fetch immediately when page becomes visible
+    }
+});
+
+// ===========================
+// Transaction Modal Functions
+// ===========================
+function openTransactionModal(transaction) {
+    const modal = document.getElementById('transactionModal');
+    const isIncome = transaction.credit && transaction.credit.trim() !== '';
+
+    // Populate modal with transaction data
+    document.getElementById('modal-datetime').textContent = transaction.dateTime || '-';
+    document.getElementById('modal-credit').textContent = transaction.credit || '-';
+    document.getElementById('modal-debit').textContent = transaction.debit || '-';
+    document.getElementById('modal-category').innerHTML = transaction.category
+        ? `<span class="category-badge">${escapeHtml(transaction.category)}</span>`
+        : '-';
+
+    const amountClass = isIncome ? 'amount-income' : 'amount-expense';
+    document.getElementById('modal-amount').innerHTML =
+        `<span class="${amountClass}">₹${transaction.amount.toFixed(2)}</span>`;
+
+    document.getElementById('modal-purpose').textContent = transaction.purpose || '-';
+
+    // Show modal
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function closeTransactionModal() {
+    const modal = document.getElementById('transactionModal');
+    modal.classList.add('hidden');
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeTransactionModal();
     }
 });
 
